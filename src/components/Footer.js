@@ -20,90 +20,103 @@ export function Footer() {
   return (
     <div className="relative">
       <Container>
-        <div className="grid max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-gray-100 dark:border-trueGray-700 lg:grid-cols-5">
-          <div className="lg:col-span-2">
-            <div>
-              <Link
-                href="/"
-                className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100"
-              >
-                <Image
-                  src={Logo}
-                  alt="N"
-                  width="32"
-                  height="32"
-                  className="w-8"
-                />
-                <span>Nextly</span>
-              </Link>
-            </div>
+        <div className="pt-6 sm:pt-10 mx-auto mt-3 border-t border-gray-100 dark:border-trueGray-700">
+          {/* Main Grid: Logo on left, Navigation/Legal centered, Follow on right */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-10 max-w-screen-xl mx-auto">
 
-            <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-              {t("footerText")}
-            </div>
-
-            <div className="mt-5">
-              <a
-                href=""
-                target="_blank"
-                rel="noopener"
-                className="relative block w-44"
-              >
-                <Image
-                  src={Vercel}
-                  alt="Powered by Vercel"
-                  width="212"
-                  height="44"
-                />
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
-              {navigation.map((item, index) => (
+            {/* Logo Section - Desktop: col 1-2, Mobile: full width */}
+            <div className="lg:col-span-2 sm:col-span-2">
+              <div>
                 <Link
-                  key={index}
                   href="/"
-                  className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700"
+                  className="flex items-center space-x-2 text-2xl font-medium text-cyan-500 dark:text-gray-100"
                 >
-                  {item}
+                  <Image
+                    src={Logo}
+                    alt="N"
+                    width="32"
+                    height="32"
+                    className="w-8"
+                  />
+                  <span className="text-center">Nextly</span>
                 </Link>
-              ))}
-            </div>
-          </div>
-          <div>
-            <div className="flex flex-wrap w-full -mt-2 -ml-3 lg:ml-0">
-              {legal.map((item, index) => (
-                <Link
-                  key={index}
-                  href="/"
-                  className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:focus:bg-trueGray-700"
+              </div>
+
+              <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
+                {t("footerText")}
+              </div>
+
+              <div className="mt-5 text-sm text-center md:flex justify-center">
+                <a
+                  href=""
+                  target="_blank"
+                  rel="noopener"
+                  className="relative block w-44"
                 >
-                  {item}
-                </Link>
-              ))}
+                  <Image
+                    className="text-sm text-center flex justify-center"
+                    src={Vercel}
+                    alt="Powered by Vercel"
+                    width="212"
+                    height="44"
+                  />
+                </a>
+              </div>
             </div>
-          </div>
-          <div className="">
-            <div>{t("follow")}</div>
-            <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500">
-              <a href="" target="_blank" rel="noopener">
-                <span className="sr-only">Twitter</span>
-                <Twitter />
-              </a>
-              <a href="" target="_blank" rel="noopener">
-                <span className="sr-only">Facebook</span>
-                <Facebook />
-              </a>
-              <a href="" target="_blank" rel="noopener">
-                <span className="sr-only">Instagram</span>
-                <Instagram />
-              </a>
-              <a href="" target="_blank" rel="noopener">
-                <span className="sr-only">Linkedin</span>
-                <Linkedin />
-              </a>
+
+            {/* Navigation Section - Centered on mobile/tablet, Desktop: col 3 */}
+            <div className="sm:col-span-1 lg:col-span-1 flex justify-center text-sm text-center">
+              <div className="flex flex-wrap w-full sm:flex-col justify-center">
+                {navigation.map((item, index) => (
+                  <Link
+                    key={index}
+                    href="/"
+                    className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 focus:outline-none dark:focus:bg-trueGray-700"
+                  >
+                    {item}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Legal Section - Centered on mobile/tablet, Desktop: col 4 */}
+            <div className="sm:col-span-1 lg:col-span-1 flex justify-center text-sm text-center">
+              <div className="flex flex-wrap w-full sm:flex-col">
+                {legal.map((item, index) => (
+                  <Link
+                    key={index}
+                    href="/"
+                    className="w-full px-4 py-2 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 focus:outline-none dark:focus:bg-trueGray-700"
+                  >
+                    {item}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Follow Section - Desktop: col 5 */}
+            <div className="sm:col-span-1 lg:col-span-1 flex justify-center lg:justify-start text-sm text-center">
+              <div>
+                <div>{t("follow")}</div>
+                <div className="flex mt-5 space-x-5 text-gray-400 dark:text-gray-500 text-sm text-center">
+                  <a href="" target="_blank" rel="noopener">
+                    <span className="sr-only">Twitter</span>
+                    <Twitter />
+                  </a>
+                  <a href="" target="_blank" rel="noopener">
+                    <span className="sr-only">Facebook</span>
+                    <Facebook />
+                  </a>
+                  <a href="" target="_blank" rel="noopener">
+                    <span className="sr-only">Instagram</span>
+                    <Instagram />
+                  </a>
+                  <a href="" target="_blank" rel="noopener">
+                    <span className="sr-only">Linkedin</span>
+                    <Linkedin />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

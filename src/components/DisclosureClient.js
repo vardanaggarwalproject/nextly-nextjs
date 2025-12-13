@@ -19,7 +19,7 @@ export function DisclosureClient(props) {
       {({ open }) => (
         <div className="flex flex-wrap items-center justify-between w-full lg:w-auto">
           <Link href={logo.href || "/"}>
-            <span className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
+            <span className="flex items-center space-x-2 text-2xl font-medium text-cyan-500 dark:text-gray-100">
               <span>
                 <Image
                   src={logo.image.url}
@@ -35,7 +35,7 @@ export function DisclosureClient(props) {
 
           <DisclosureButton
             aria-label="Toggle Menu"
-            className="px-2 py-1 ml-auto text-gray-500 rounded-md lg:hidden hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none dark:text-gray-300 dark:focus:bg-trueGray-700"
+            className="px-2 py-1 ml-auto text-gray-500 rounded-md lg:hidden hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 focus:outline-none dark:text-gray-300 dark:focus:bg-trueGray-700"
           >
             <svg
               className="w-6 h-6 fill-current"
@@ -64,7 +64,7 @@ export function DisclosureClient(props) {
                 <Link
                   key={index}
                   href={item.href}
-                  className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
+                  className="w-full px-4 py-2 -ml-4 text-gray-500 rounded-md dark:text-gray-300 hover:text-cyan-500 focus:text-cyan-500 focus:bg-cyan-100 dark:focus:bg-gray-800 focus:outline-none"
                 >
                   {item.text}
                 </Link>
@@ -72,7 +72,7 @@ export function DisclosureClient(props) {
               <Link
                 href={cta.href}
                 target={cta.external ? "_blank" : "_self"}
-                className="w-full px-6 py-2 mt-3 text-center text-white bg-indigo-600 rounded-md lg:ml-5"
+                className="w-full px-6 py-2 mt-3 text-center text-white bg-cyan-600 rounded-md lg:ml-5"
               >
                 {cta.text}
               </Link>

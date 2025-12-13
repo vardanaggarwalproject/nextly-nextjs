@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Container } from "@/components/Container";
+import { Play } from "lucide-react";
 
 export function Video({ videoId }) {
   const [playVideo, setPlayVideo] = useState(false);
@@ -9,34 +10,33 @@ export function Video({ videoId }) {
 
   return (
     <Container>
-      <div className="relative w-full h-[500px] max-w-4xl mx-auto overflow-hidden lg:mb-20 rounded-2xl bg-indigo-300 cursor-pointer bg-gradient-to-tr from-purple-400 to-indigo-700">
+      <div className="relative w-full aspect-video max-w-5xl mx-auto overflow-hidden lg:mb-20 rounded-2xl bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-700 dark:from-cyan-900 dark:via-cyan-900 dark:to-cyan-950 cursor-pointer shadow-2xl hover:shadow-2xl transition-shadow group">
         {!playVideo && (
-          <button
-            onClick={() => setPlayVideo(!playVideo)}
-            className="absolute inset-auto w-16 h-16 text-white transform -translate-x-1/2 -translate-y-1/2 lg:w-28 lg:h-28 top-1/2 left-1/2"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-16 h-16  lg:w-28 lg:h-28"
-              viewBox="0 0 20 20"
-              fill="currentColor"
+          <>
+            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
+            <button
+              onClick={() => setPlayVideo(true)}
+              className="absolute inset-0 flex items-center justify-center group focus:outline-none"
+              aria-label="Play Video"
             >
-              <path
-                fillRule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <span className="sr-only">Play Video</span>
-          </button>
+              <div className="relative">
+                <div className="absolute inset-0 bg-white/20 rounded-full blur-xl animate-pulse" />
+                <div className="relative bg-white/90 dark:bg-gray-900/90 rounded-full p-4 sm:p-6 hover:bg-white dark:hover:bg-gray-800 transition-colors shadow-lg">
+                  <Play className="w-8 h-8 sm:w-12 sm:h-12 text-cyan-600 dark:text-cyan-400 fill-current" />
+                </div>
+              </div>
+              <span className="sr-only">Play Video</span>
+            </button>
+          </>
         )}
         {playVideo && (
           <iframe
-            src={`https://www.youtube-nocookie.com/embed/${videoId}?controls=0&autoplay=1`}
+            src={`https://www.youtube-nocookie.com/embed/${videoId}?controls=1&autoplay=1`}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             className="w-full h-full aspect-video"
-          ></iframe>
+            allowFullScreen
+          />
         )}
       </div>
     </Container>

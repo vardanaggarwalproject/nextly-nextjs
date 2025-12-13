@@ -24,7 +24,7 @@ export const Benefits = ({ data, imgPos }) => {
   const bulletKeys = ["point1", "point2", "point3"];
 
   return (
-    <Container className="flex flex-wrap mb-20 lg:gap-10 lg:flex-nowrap ">
+    <Container className="flex flex-wrap mb-12 sm:mb-16 lg:mb-18 lg:gap-10 lg:flex-nowrap ">
       <div
         className={`flex items-center justify-center w-full lg:w-1/2 ${
           imgPos === "right" ? "lg:order-1" : ""
@@ -85,17 +85,17 @@ export const Benefits = ({ data, imgPos }) => {
 
 function Benefit(props) {
   return (
-    <div className="flex items-start mt-8 space-x-3">
-      <div className="flex items-center justify-center flex-shrink-0 mt-1 bg-indigo-500 rounded-md w-11 h-11 ">
+    <div className="flex items-start mt-8 space-x-4 p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+      <div className="flex items-center justify-center flex-shrink-0 mt-1 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-lg w-12 h-12 shadow-lg">
         {React.cloneElement(props.icon, {
-          className: "w-7 h-7 text-indigo-50",
+          className: "w-6 h-6 text-white",
         })}
       </div>
       <div>
-        <h4 className="text-xl font-medium text-gray-800 dark:text-gray-200">
+        <h4 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
           {props.title}
         </h4>
-        <p className="mt-1 text-gray-500 dark:text-gray-400">
+        <p className="mt-2 text-gray-600 dark:text-gray-400 leading-relaxed">
           {props.children}
         </p>
       </div>

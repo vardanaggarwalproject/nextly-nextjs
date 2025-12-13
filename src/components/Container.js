@@ -3,7 +3,7 @@ import React from "react";
 export function Container(props) {
   return (
     <div
-      className={`container p-8 mx-auto xl:px-0 ${
+      className={`w-full max-w-7xl p-2 mx-auto xl:px-0 ${
         props.className ? props.className : ""
       }`}
     >
